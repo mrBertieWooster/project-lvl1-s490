@@ -1,12 +1,19 @@
 {
-  "name": "brain-games",
+  "name": "brain-games_2904",
   "version": "1.0.0",
   "description": "brain-games",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "hexlet": "dist/bin/hexlet.js"
   },
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "bertie",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
