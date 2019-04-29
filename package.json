@@ -1,10 +1,10 @@
 {
-  "name": "brain-games_2904",
-  "version": "1.0.0",
+  "name": "@bertie/brain-games_2904",
+  "version": "1.0.1",
   "description": "brain-games",
   "main": "index.js",
   "bin": {
-    "hexlet": "dist/bin/hexlet.js"
+    "hexlet": "dist/bin/brain-games.js"
   },
   "files": [
     "dist"
