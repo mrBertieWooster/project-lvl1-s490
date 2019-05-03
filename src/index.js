@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { cons, car, cdr } from 'hexlet-pairs';
 
 export const askUser = (str) => {
   const answer = readlineSync.question(str);
@@ -15,20 +16,64 @@ export const checkAnswer = (str, num) => {
   return true;
 };
 
+export const checkAnswerCalc = (answer, expr) => {
+  if (Number(answer) === Number(expr)) {
+    return true;
+  }
+  return false;
+};
+
 export const genNum = () => {
   const min = 2;
   const max = 100;
   return Math.floor(Math.random() * (max - min));
 };
 
-export const process = () => {
+export const getSign = () => {
+  const arr = ['+', '-', '*'];
+  const rIndex = Math.floor(Math.random() * 3);
+  return arr[rIndex];
+};
+
+export const evalExpr = (expr) => {
+  if (cdr(expr) === '*') {
+    return car(car(expr)) * cdr(car(expr));
+  } if (cdr(expr) === '-') {
+    return car(car(expr)) - cdr(car(expr));
+  }
+  return car(car(expr)) + cdr(car(expr));
+};
+
+export const makeExpression = () => {
+  const result = cons(cons(genNum(), genNum()), getSign());
+  return result;
+};
+
+export const processEven = () => {
   for (let i = 0; i < 3; i += 1) {
     const num = genNum();
     console.log(`Question: ${num}`);
-    const answer = askUser('Your answer:');
+    const answer = askUser('Your answer: ');
     if (checkAnswer(answer, num)) {
       console.log('Correct!');
     } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${num}.`);
+      return false;
+    }
+  }
+  return true;
+};
+
+export const processCalc = () => {
+  for (let i = 0; i < 3; i += 1) {
+    const expr = makeExpression();
+    const result = evalExpr(expr);
+    console.log(`Question: ${car(car(expr))} ${cdr(expr)} ${cdr(car(expr))}`);
+    const answer = askUser('Your answer: ');
+    if (checkAnswerCalc(answer, result)) {
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
       return false;
     }
   }

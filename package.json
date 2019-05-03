@@ -1,9 +1,10 @@
 {
   "name": "@bertie/brain-games_2904",
-  "version": "1.1.3",
+  "version": "1.2.7",
   "description": "brain-games",
   "main": "index.js",
   "bin": {
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js"
   },
@@ -21,6 +22,7 @@
     "url": "https://github.com/mrBertieWooster/project-lvl1-s490"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "readline-sync": "latest"
   },
   "devDependencies": {
