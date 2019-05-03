@@ -4,4 +4,4 @@ import askUser from '..';
 
 console.log('Welcome to the Brain Games!');
 
-askUser();
+console.log(`Hello, ${askUser('May I have your name?: ')}!`);
