@@ -6,11 +6,34 @@ export const askUser = (str) => {
   return answer;
 };
 
+export const isPrime = (num) => {
+  const iter = (number, acc) => {
+    if (number === 1 || number === acc) {
+      return true;
+    }
+    if (number % acc === 0) {
+      return false;
+    }
+    return iter(num, acc + 1);
+  };
+  return iter(num, 2);
+};
+
 export const checkAnswerEven = (str, num) => {
   if (str !== 'yes' && str !== 'no') {
     return false;
   }
   if (num % 2 === 0 && str === 'no') {
+    return false;
+  }
+  return true;
+};
+
+export const checkAnswerPrime = (str, num) => {
+  if (str !== 'yes' && str !== 'no') {
+    return false;
+  }
+  if (isPrime(num) && str === 'no') {
     return false;
   }
   return true;
@@ -26,7 +49,7 @@ export const checkAnswer = (answer, expr) => {
 export const genNum = () => {
   const min = 2;
   const max = 10;
-  return Math.floor(Math.random() * (max - min));
+  return Math.floor(Math.random() * (max - min) + min);
 };
 
 export const getSign = () => {
@@ -136,6 +159,21 @@ export const processProg = () => {
     console.log(`Question: ${cdr(result)}`);
     const answer = askUser('Your answer: ');
     if (checkAnswer(answer, car(result))) {
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
+      return false;
+    }
+  }
+  return true;
+};
+
+export const processPrime = () => {
+  for (let i = 0; i < 3; i += 1) {
+    const result = genNum();
+    console.log(`Question: ${result}`);
+    const answer = askUser('Your answer: ');
+    if (checkAnswerPrime(answer, result)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
