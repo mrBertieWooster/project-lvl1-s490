@@ -5,14 +5,17 @@ install:
 publish:
 	npm publish --access=public
 
-start:
-	npx babel-node src/bin/brain-games.js
-
 lint:
 	npx eslint .
+
+start:
+	npx babel-node src/bin/brain-games.js
 
 start-even:
 	npx babel-node src/bin/brain-even.js
 
 start-calc:
 	npx babel-node src/bin/brain-calc.js
+
+start-gcd:
+	npx babel-node src/bin/brain-gcd.js

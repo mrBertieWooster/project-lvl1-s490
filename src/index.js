@@ -6,7 +6,7 @@ export const askUser = (str) => {
   return answer;
 };
 
-export const checkAnswer = (str, num) => {
+export const checkAnswerEven = (str, num) => {
   if (str !== 'yes' && str !== 'no') {
     return false;
   }
@@ -16,7 +16,7 @@ export const checkAnswer = (str, num) => {
   return true;
 };
 
-export const checkAnswerCalc = (answer, expr) => {
+export const checkAnswer = (answer, expr) => {
   if (Number(answer) === Number(expr)) {
     return true;
   }
@@ -49,12 +49,19 @@ export const makeExpression = () => {
   return result;
 };
 
+export const evalGCD = (pair) => {
+  if (cdr(pair) === 0) {
+    return car(pair);
+  }
+  return evalGCD(cons(cdr(pair), car(pair) % cdr(pair)));
+};
+
 export const processEven = () => {
   for (let i = 0; i < 3; i += 1) {
     const num = genNum();
     console.log(`Question: ${num}`);
     const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, num)) {
+    if (checkAnswerEven(answer, num)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${num}.`);
@@ -70,7 +77,23 @@ export const processCalc = () => {
     const result = evalExpr(expr);
     console.log(`Question: ${car(car(expr))} ${cdr(expr)} ${cdr(car(expr))}`);
     const answer = askUser('Your answer: ');
-    if (checkAnswerCalc(answer, result)) {
+    if (checkAnswer(answer, result)) {
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
+      return false;
+    }
+  }
+  return true;
+};
+
+export const processGCD = () => {
+  for (let i = 0; i < 3; i += 1) {
+    const pair = cons(genNum(), genNum());
+    const result = evalGCD(pair);
+    console.log(`Question: ${car(pair)} ${cdr(pair)}`);
+    const answer = askUser('Your answer: ');
+    if (checkAnswer(answer, result)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
