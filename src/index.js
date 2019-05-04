@@ -25,7 +25,7 @@ export const checkAnswer = (answer, expr) => {
 
 export const genNum = () => {
   const min = 2;
-  const max = 100;
+  const max = 10;
   return Math.floor(Math.random() * (max - min));
 };
 
@@ -46,6 +46,32 @@ export const evalExpr = (expr) => {
 
 export const makeExpression = () => {
   const result = cons(cons(genNum(), genNum()), getSign());
+  return result;
+};
+
+export const makeProgression = () => {
+  const diff = genNum();
+  const start = genNum();
+  const iter = (count, acc, lastIndex) => {
+    if (count < 1) {
+      return acc;
+    }
+    return iter(count - 1, `${acc} ${lastIndex + diff}`, lastIndex + diff);
+  };
+  return iter(10, start, start);
+};
+
+export const cutProgMember = (prog) => {
+  const rnd = genNum();
+  const progToArr = prog.split(' ');
+  let num = 0;
+  for (let i = 0; i < progToArr.length; i += 1) {
+    if (i === rnd) {
+      num = progToArr[i];
+      progToArr[i] = '..';
+    }
+  }
+  const result = cons(num, progToArr.join(' '));
   return result;
 };
 
@@ -94,6 +120,22 @@ export const processGCD = () => {
     console.log(`Question: ${car(pair)} ${cdr(pair)}`);
     const answer = askUser('Your answer: ');
     if (checkAnswer(answer, result)) {
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
+      return false;
+    }
+  }
+  return true;
+};
+
+export const processProg = () => {
+  for (let i = 0; i < 3; i += 1) {
+    const prog = makeProgression();
+    const result = cutProgMember(prog);
+    console.log(`Question: ${cdr(result)}`);
+    const answer = askUser('Your answer: ');
+    if (checkAnswer(answer, car(result))) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
