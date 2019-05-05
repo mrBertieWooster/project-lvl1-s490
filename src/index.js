@@ -6,73 +6,72 @@ export const askUser = (str) => {
   return answer;
 };
 
-export const isPrime = (num) => {
+export const printResult = (res, playerName) => {
+  if (res > 0) {
+    console.log(`Congratulations, ${playerName}!`);
+  } else {
+    console.log(`Let's try again, ${playerName}!`);
+  }
+};
+
+const isEven = (expr) => {
+  if (expr % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
+
+const isPrime = (num) => {
   const iter = (number, acc) => {
     if (number === 1 || number === acc) {
-      return true;
+      return 'yes';
     }
     if (number % acc === 0) {
-      return false;
+      return 'no';
     }
     return iter(num, acc + 1);
   };
   return iter(num, 2);
 };
 
-export const checkAnswerEven = (str, num) => {
-  if (str !== 'yes' && str !== 'no') {
-    return false;
-  }
-  if (num % 2 === 0 && str === 'no') {
-    return false;
-  }
-  return true;
-};
-
-export const checkAnswerPrime = (str, num) => {
-  if (str !== 'yes' && str !== 'no') {
-    return false;
-  }
-  if (isPrime(num) && str === 'no') {
+const checkAnswer = (answer, result, gameName) => {
+  console.log(`answer ${answer} ${typeof (answer)}`);
+  console.log(`result ${result} ${typeof (result)}`);
+  console.log(`game ${gameName}`);
+  if (answer !== result) {
+  // if (Number(answer) !== Number(result)) {
     return false;
   }
   return true;
 };
 
-export const checkAnswer = (answer, expr) => {
-  if (Number(answer) === Number(expr)) {
-    return true;
-  }
-  return false;
-};
-
-export const genNum = () => {
+const genNum = () => {
   const min = 2;
   const max = 10;
   return Math.floor(Math.random() * (max - min) + min);
 };
 
-export const getSign = () => {
+const getSign = () => {
   const arr = ['+', '-', '*'];
   const rIndex = Math.floor(Math.random() * 3);
   return arr[rIndex];
 };
 
-export const evalExpr = (expr) => {
+const evalExpr = (expr) => {
   if (cdr(expr) === '*') {
-    return car(car(expr)) * cdr(car(expr));
+    return String(car(car(expr)) * cdr(car(expr)));
   } if (cdr(expr) === '-') {
-    return car(car(expr)) - cdr(car(expr));
+    return String(car(car(expr)) - cdr(car(expr)));
   }
-  return car(car(expr)) + cdr(car(expr));
+  return String(car(car(expr)) + cdr(car(expr)));
 };
 
-export const makeExpression = () => {
+const makeExpression = () => {
   const result = cons(cons(genNum(), genNum()), getSign());
   return result;
 };
 
-export const makeProgression = () => {
+const makeProgression = () => {
   const diff = genNum();
   const start = genNum();
   const iter = (count, acc, lastIndex) => {
@@ -84,7 +83,7 @@ export const makeProgression = () => {
   return iter(10, start, start);
 };
 
-export const cutProgMember = (prog) => {
+const cutProgMember = (prog) => {
   const rnd = genNum();
   const progToArr = prog.split(' ');
   let num = 0;
@@ -98,82 +97,42 @@ export const cutProgMember = (prog) => {
   return result;
 };
 
-export const evalGCD = (pair) => {
+const evalGCD = (pair) => {
   if (cdr(pair) === 0) {
-    return car(pair);
+    return String(car(pair));
   }
   return evalGCD(cons(cdr(pair), car(pair) % cdr(pair)));
 };
 
-export const processEven = () => {
+export const process = (gameName) => {
   for (let i = 0; i < 3; i += 1) {
-    const num = genNum();
-    console.log(`Question: ${num}`);
-    const answer = askUser('Your answer: ');
-    if (checkAnswerEven(answer, num)) {
-      console.log('Correct!');
+    let result = '';
+    let strForDisplay = '';
+    if (gameName === 'brain-progression') {
+      const expr = makeProgression();
+      const resPair = cutProgMember(expr);
+      result = car(resPair);
+      strForDisplay = cdr(resPair);
+    } else if (gameName === 'brain-calc') {
+      const expr = makeExpression();
+      result = evalExpr(expr);
+      strForDisplay = `${car(car(expr))} ${cdr(expr)} ${cdr(car(expr))}`;
+    } else if (gameName === 'brain-gcd') {
+      const expr = cons(genNum(), genNum());
+      result = evalGCD(expr);
+      strForDisplay = `${car(expr)} ${cdr(expr)}`;
+    } else if (gameName === 'brain-prime') {
+      const expr = genNum();
+      result = isPrime(expr);
+      strForDisplay = expr;
     } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${num}.`);
-      return false;
+      const expr = genNum();
+      result = isEven(expr);
+      strForDisplay = expr;
     }
-  }
-  return true;
-};
-
-export const processCalc = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const expr = makeExpression();
-    const result = evalExpr(expr);
-    console.log(`Question: ${car(car(expr))} ${cdr(expr)} ${cdr(car(expr))}`);
+    console.log(`Question: ${strForDisplay}`);
     const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, result)) {
-      console.log('Correct!');
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
-      return false;
-    }
-  }
-  return true;
-};
-
-export const processGCD = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const pair = cons(genNum(), genNum());
-    const result = evalGCD(pair);
-    console.log(`Question: ${car(pair)} ${cdr(pair)}`);
-    const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, result)) {
-      console.log('Correct!');
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
-      return false;
-    }
-  }
-  return true;
-};
-
-export const processProg = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const prog = makeProgression();
-    const result = cutProgMember(prog);
-    console.log(`Question: ${cdr(result)}`);
-    const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, car(result))) {
-      console.log('Correct!');
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);
-      return false;
-    }
-  }
-  return true;
-};
-
-export const processPrime = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const result = genNum();
-    console.log(`Question: ${result}`);
-    const answer = askUser('Your answer: ');
-    if (checkAnswerPrime(answer, result)) {
+    if (checkAnswer(answer, result, gameName)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);

@@ -1,6 +1,6 @@
 {
   "name": "@bertie/brain-games_2904",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "brain-games",
   "main": "index.js",
   "bin": {

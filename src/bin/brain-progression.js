@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { askUser, processProg } from '..';
+import { askUser, process, printResult } from '..';
 
 console.log('Welcome to the Brain Games!');
 console.log('What number is missing in the progression?');
@@ -8,8 +8,8 @@ console.log('What number is missing in the progression?');
 const playerName = askUser('May I have your name?: ');
 console.log(`Hello, ${playerName}!`);
 
-if (processProg()) {
-  console.log(`Congratulations, ${playerName}!`);
+if (process('brain-progression')) {
+  printResult(1, playerName);
 } else {
-  console.log(`Let's try again, ${playerName}!`);
+  printResult(0, playerName);
 }

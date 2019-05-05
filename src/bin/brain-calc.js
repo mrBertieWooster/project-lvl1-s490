@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { askUser, processCalc } from '..';
+import { askUser, process, printResult } from '..';
 
 console.log('Welcome to the Brain Games!');
 console.log('What is the result of the expression?');
@@ -8,8 +8,8 @@ console.log('What is the result of the expression?');
 const playerName = askUser('May I have your name?: ');
 console.log(`Hello, ${playerName}!`);
 
-if (processCalc()) {
-  console.log(`Congratulations, ${playerName}!`);
+if (process('brain-calc')) {
+  printResult(1, playerName);
 } else {
-  console.log(`Let's try again, ${playerName}!`);
+  printResult(0, playerName);
 }
