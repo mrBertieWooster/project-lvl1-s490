@@ -34,10 +34,7 @@ const isPrime = (num) => {
   return iter(num, 2);
 };
 
-const checkAnswer = (answer, result, gameName) => {
-  console.log(`answer ${answer} ${typeof (answer)}`);
-  console.log(`result ${result} ${typeof (result)}`);
-  console.log(`game ${gameName}`);
+const checkAnswer = (answer, result) => {
   if (answer !== result) {
   // if (Number(answer) !== Number(result)) {
     return false;
@@ -132,7 +129,7 @@ export const process = (gameName) => {
     }
     console.log(`Question: ${strForDisplay}`);
     const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, result, gameName)) {
+    if (checkAnswer(answer, result)) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`);

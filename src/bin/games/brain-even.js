@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { askUser, process, printResult } from '..';
+import { askUser, process, printResult } from '../..';
 
 console.log('Welcome to the Brain Games!');
 console.log('Answer "yes" if number even otherwise answer "no"');
