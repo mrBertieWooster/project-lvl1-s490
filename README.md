@@ -20,4 +20,4 @@ How to install and run
 [![asciicast](https://asciinema.org/a/aTrSZ8deWYUHLQ0UvCcJzHRq9.png)](https://asciinema.org/a/aTrSZ8deWYUHLQ0UvCcJzHRq9)
 
 # brain-prime
-[![asciicast](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T.png)](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T) - prime
+[![asciicast](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T.png)](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T)
