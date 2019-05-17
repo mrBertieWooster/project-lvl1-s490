@@ -1,6 +1,6 @@
 {
   "name": "@bertie/brain-games_2904",
-  "version": "1.7.13",
+  "version": "1.7.14",
   "description": "brain-games",
   "keywords": [ "brain-games", "games", "hexlet" ],
   "bin": {

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import process from '..';
+import startCalc from '../games/calc-module';
 
-process('brain-calc');
+startCalc('What is the result of the expression?');

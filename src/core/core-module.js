@@ -32,23 +32,9 @@ export const getSign = () => {
   return arr[rIndex];
 };
 
-export const greeting = (gameName) => {
+export const greeting = (quest) => {
   console.log('Welcome to the Brain Games!');
-  let result = '';
-  if (gameName === 'brain-progression') {
-    result = 'What number is missing in the progression?';
-  } else if (gameName === 'brain-calc') {
-    result = 'What is the result of the expression?';
-  } else if (gameName === 'brain-gcd') {
-    result = 'Find the greatest common divisor of given numbers.';
-  } else if (gameName === 'brain-prime') {
-    result = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  } else if (gameName === 'brain-even') {
-    result = 'Answer "yes" if number even otherwise answer "no"';
-  } else {
-    return console.log('game not found');
-  }
-  console.log(result);
+  console.log(quest);
   const playerName = askUser('May I have your name?: ');
   console.log(`Hello, ${playerName}!`);
   return playerName;

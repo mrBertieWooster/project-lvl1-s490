@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import process from '..';
+import startProg from '../games/prog-module';
 
-process('brain-progression');
+startProg('What number is missing in the progression?');

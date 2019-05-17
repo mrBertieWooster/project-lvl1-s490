@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import process from '..';
+import startGCD from '../games/gcd-module';
 
-process('brain-gcd');
+startGCD('Find the greatest common divisor of given numbers.');

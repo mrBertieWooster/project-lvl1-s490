@@ -1,5 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import { genNum, getSign } from '../core/core-module';
+import process from '..';
 
 const evalExpr = (expr) => {
   if (cdr(expr) === '*') {
@@ -15,7 +16,7 @@ const makeExpression = () => {
   return result;
 };
 
-const prepareCalc = () => {
+const prepareDataCalc = () => {
   const expr = makeExpression();
   const result = evalExpr(expr);
   const strForDisplay = `${car(car(expr))} ${cdr(expr)} ${cdr(car(expr))}`;
@@ -23,4 +24,8 @@ const prepareCalc = () => {
   return cons(result, strForDisplay);
 };
 
-export default prepareCalc;
+const startCalc = (gameQuest) => {
+  process(prepareDataCalc, gameQuest);
+};
+
+export default startCalc;

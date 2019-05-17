@@ -1,5 +1,6 @@
-import cons from 'hexlet-pairs';
-import genNum from '../core/core-module';
+import { cons } from 'hexlet-pairs';
+import { genNum } from '../core/core-module';
+import process from '..';
 
 const isPrime = (num) => {
   const iter = (number, acc) => {
@@ -14,7 +15,7 @@ const isPrime = (num) => {
   return iter(num, 2);
 };
 
-const preparePrime = () => {
+const prepareDataPrime = () => {
   const expr = genNum();
   const result = isPrime(expr);
   const strForDisplay = expr;
@@ -22,4 +23,8 @@ const preparePrime = () => {
   return cons(result, strForDisplay);
 };
 
-export default preparePrime;
+const startPrime = (gameQuest) => {
+  process(prepareDataPrime, gameQuest);
+};
+
+export default startPrime;

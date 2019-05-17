@@ -1,5 +1,6 @@
-import cons from 'hexlet-pairs';
-import genNum from '../core/core-module';
+import { cons } from 'hexlet-pairs';
+import { genNum } from '../core/core-module';
+import process from '..';
 
 const makeProgression = () => {
   const diff = genNum();
@@ -27,11 +28,15 @@ const cutProgMember = (prog) => {
   return result;
 };
 
-const prepareProg = () => {
+const prepareDataProg = () => {
   const expr = makeProgression();
   const resPair = cutProgMember(expr);
 
   return resPair;
 };
 
-export default prepareProg;
+const startProg = (gameQuest) => {
+  process(prepareDataProg, gameQuest);
+};
+
+export default startProg;

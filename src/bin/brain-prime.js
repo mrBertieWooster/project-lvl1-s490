@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import process from '..';
+import startPrime from '../games/prime-module';
 
-process('brain-prime');
+startPrime('Answer "yes" if given number is prime. Otherwise answer "no".');

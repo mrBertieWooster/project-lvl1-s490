@@ -1,5 +1,6 @@
-import cons from 'hexlet-pairs';
-import genNum from '../core/core-module';
+import { cons } from 'hexlet-pairs';
+import { genNum } from '../core/core-module';
+import process from '..';
 
 const isEven = (expr) => {
   if (expr % 2 === 0) {
@@ -8,7 +9,7 @@ const isEven = (expr) => {
   return 'no';
 };
 
-const prepareEven = () => {
+const prepareDataEven = () => {
   const expr = genNum();
   const result = isEven(expr);
   const strForDisplay = expr;
@@ -16,4 +17,8 @@ const prepareEven = () => {
   return cons(result, strForDisplay);
 };
 
-export default prepareEven;
+const startEven = (gameQuest) => {
+  process(prepareDataEven, gameQuest);
+};
+
+export default startEven;

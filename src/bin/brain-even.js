@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import process from '..';
+import startEven from '../games/even-module';
 
-process('brain-even');
+startEven('Answer "yes" if number even otherwise answer "no"');
