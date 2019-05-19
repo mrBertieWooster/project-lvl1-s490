@@ -6,9 +6,7 @@ import {
 const process = (prepareData, quest) => {
   const playerName = greeting(quest);
   for (let i = 0; i < 3; i += 1) {
-    console.log('1');
     const result = prepareData();
-    console.log('2');
     console.log(`Question: ${cdr(result)}`);
     const answer = askUser('Your answer: ');
     if (checkAnswer(answer, car(result))) {
