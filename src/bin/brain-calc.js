@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startCalc from '../games/calc-module';
+import startCalc from '../games/calc';
 
-startCalc('What is the result of the expression?');
+startCalc();

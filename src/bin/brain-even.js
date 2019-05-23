@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startEven from '../games/even-module';
+import startEven from '../games/even';
 
-startEven('Answer "yes" if number even otherwise answer "no"');
+startEven();

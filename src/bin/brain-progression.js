@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startProg from '../games/prog-module';
+import startProg from '../games/progression';
 
-startProg('What number is missing in the progression?');
+startProg();

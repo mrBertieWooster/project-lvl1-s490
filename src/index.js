@@ -1,9 +1,36 @@
 import { car, cdr } from 'hexlet-pairs';
-import {
-  greeting, askUser, checkAnswer, printResult,
-} from './core/core-module';
+import readlineSync from 'readline-sync';
+
+const askUser = (str) => {
+  const answer = readlineSync.question(str);
+  return answer;
+};
+
+const printResult = (res, playerName) => {
+  if (res > 0) {
+    console.log(`Congratulations, ${playerName}!`);
+  } else {
+    console.log(`Let's try again, ${playerName}!`);
+  }
+};
+
+const checkAnswer = (answer, result) => {
+  if (answer !== result) {
+    return false;
+  }
+  return true;
+};
+
+const greeting = (quest) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(quest);
+  const playerName = askUser('May I have your name?: ');
+  console.log(`Hello, ${playerName}!`);
+  return playerName;
+};
 
 const process = (prepareData, quest) => {
+  console.log(`quest ${quest}`);
   const playerName = greeting(quest);
   for (let i = 0; i < 3; i += 1) {
     const result = prepareData();

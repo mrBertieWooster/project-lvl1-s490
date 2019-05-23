@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startPrime from '../games/prime-module';
+import startPrime from '../games/prime';
 
-startPrime('Answer "yes" if given number is prime. Otherwise answer "no".');
+startPrime();
