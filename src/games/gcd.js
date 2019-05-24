@@ -4,12 +4,10 @@ import process from '..';
 
 const findGCD = (num1, num2) => {
   if (num2 === 0) {
-    return String(num1);
+    return num1;
   }
   return findGCD(num2, num1 % num2);
 };
-
-const getGameQuestionGCD = () => 'Find the greatest common divisor of given numbers.';
 
 const prepareDataGCD = () => {
   const number1 = genNum(2, 10);
@@ -20,4 +18,4 @@ const prepareDataGCD = () => {
   return cons(answer, question);
 };
 
-export default () => process(prepareDataGCD, getGameQuestionGCD());
+export default () => process(prepareDataGCD, 'Find the greatest common divisor of given numbers.');

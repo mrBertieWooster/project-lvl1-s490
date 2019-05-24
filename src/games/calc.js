@@ -4,8 +4,8 @@ import process from '..';
 
 export const getSign = () => {
   const arr = ['+', '-', '*'];
-  const rIndex = Math.floor(Math.random() * 3);
-  return arr[rIndex];
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 };
 
 const evalExpr = (number1, number2, sign) => {
@@ -19,8 +19,6 @@ const evalExpr = (number1, number2, sign) => {
   }
 };
 
-const getGameQuestionCalc = () => 'What is the result of the expression?';
-
 const prepareDataCalc = () => {
   const number1 = genNum(2, 10);
   const number2 = genNum(2, 10);
@@ -31,4 +29,4 @@ const prepareDataCalc = () => {
   return cons(answer, question);
 };
 
-export default () => process(prepareDataCalc, getGameQuestionCalc());
+export default () => process(prepareDataCalc, 'What is the result of the expression?');

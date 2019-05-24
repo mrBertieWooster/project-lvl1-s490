@@ -6,21 +6,6 @@ const askUser = (str) => {
   return answer;
 };
 
-const printResult = (res, playerName) => {
-  if (res > 0) {
-    console.log(`Congratulations, ${playerName}!`);
-  } else {
-    console.log(`Let's try again, ${playerName}!`);
-  }
-};
-
-const checkAnswer = (answer, result) => {
-  if (answer !== result) {
-    return false;
-  }
-  return true;
-};
-
 const greeting = (quest) => {
   console.log('Welcome to the Brain Games!');
   console.log(quest);
@@ -30,20 +15,21 @@ const greeting = (quest) => {
 };
 
 const process = (prepareData, quest) => {
-  console.log(`quest ${quest}`);
   const playerName = greeting(quest);
-  for (let i = 0; i < 3; i += 1) {
+  const roundCount = 3;
+  for (let i = 0; i < roundCount; i += 1) {
     const result = prepareData();
     console.log(`Question: ${cdr(result)}`);
     const answer = askUser('Your answer: ');
-    if (checkAnswer(answer, car(result))) {
+    if (String(answer) === String(car(result))) {
       console.log('Correct!');
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${car(result)}.`);
-      return printResult(0, playerName);
+      console.log(`Let's try again, ${playerName}!`);
+      return;
     }
   }
-  return printResult(1, playerName);
+  console.log(`Congratulations, ${playerName}!`);
 };
 
 export default process;

@@ -2,20 +2,21 @@ import { cons } from 'hexlet-pairs';
 import genNum from '../utils';
 import process from '..';
 
-const isPrime = (num) => {
-  const iter = (number, acc) => {
+const isPrime = (number) => {
+  if (number < 1) {
+    return false;
+  }
+  const iter = (acc) => {
     if (number === 1 || number === acc) {
       return true;
     }
     if (number % acc === 0) {
       return false;
     }
-    return iter(num, acc + 1);
+    return iter(number, acc + 1);
   };
-  return iter(num, 2);
+  return iter(number, 2);
 };
-
-const getGameQuestionPrime = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const prepareDataPrime = () => {
   const number = genNum(2, 10);
@@ -25,4 +26,4 @@ const prepareDataPrime = () => {
   return cons(answer, question);
 };
 
-export default () => process(prepareDataPrime, getGameQuestionPrime());
+export default () => process(prepareDataPrime, 'Answer "yes" if given number is prime. Otherwise answer "no".');
