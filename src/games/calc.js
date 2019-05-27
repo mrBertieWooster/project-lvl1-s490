@@ -2,6 +2,8 @@ import { cons } from 'hexlet-pairs';
 import genNum from '../utils';
 import process from '..';
 
+const gameQuestionCalc = 'What is the result of the expression?';
+
 export const getSign = () => {
   const arr = ['+', '-', '*'];
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -11,11 +13,11 @@ export const getSign = () => {
 const evalExpr = (number1, number2, sign) => {
   switch (sign) {
     case '*':
-      return String(number1 * number2);
+      return number1 * number2;
     case '-':
-      return String(number1 - number2);
+      return number1 - number2;
     default:
-      return String(number1 + number2);
+      return number1 + number2;
   }
 };
 
@@ -23,10 +25,10 @@ const prepareDataCalc = () => {
   const number1 = genNum(2, 10);
   const number2 = genNum(2, 10);
   const sign = getSign();
-  const answer = evalExpr(number1, number2, sign);
+  const answer = String(evalExpr(number1, number2, sign));
   const question = `${number1} ${sign} ${number2}`;
 
   return cons(answer, question);
 };
 
-export default () => process(prepareDataCalc, 'What is the result of the expression?');
+export default () => process(prepareDataCalc, gameQuestionCalc);

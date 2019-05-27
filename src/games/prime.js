@@ -2,12 +2,17 @@ import { cons } from 'hexlet-pairs';
 import genNum from '../utils';
 import process from '..';
 
+const gameQuestionPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const isPrime = (number) => {
-  if (number < 1) {
+  if (number <= 1) {
     return false;
   }
+
+  const startNumber = 2;
+
   const iter = (acc) => {
-    if (number === 1 || number === acc) {
+    if (number === acc) {
       return true;
     }
     if (number % acc === 0) {
@@ -15,7 +20,7 @@ const isPrime = (number) => {
     }
     return iter(number, acc + 1);
   };
-  return iter(number, 2);
+  return iter(startNumber);
 };
 
 const prepareDataPrime = () => {
@@ -26,4 +31,4 @@ const prepareDataPrime = () => {
   return cons(answer, question);
 };
 
-export default () => process(prepareDataPrime, 'Answer "yes" if given number is prime. Otherwise answer "no".');
+export default () => process(prepareDataPrime, gameQuestionPrime);

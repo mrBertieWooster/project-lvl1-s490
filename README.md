@@ -8,16 +8,16 @@ How to install and run
 ======================
 
 # brain-even
-[![asciicast](https://asciinema.org/a/WDYzPznQzSLE5rWKZTQpd1Vz2.png)](https://asciinema.org/a/WDYzPznQzSLE5rWKZTQpd1Vz2)
+[![asciicast](https://asciinema.org/a/lgMsvFIoEEpfyk9tuCq8Hmn5g.png)](https://asciinema.org/a/lgMsvFIoEEpfyk9tuCq8Hmn5g)
 
 # brain-calc
-[![asciicast](https://asciinema.org/a/Exz9X2A4utOnX735gL8qmGtIW.png)](https://asciinema.org/a/Exz9X2A4utOnX735gL8qmGtIW)
+[![asciicast](https://asciinema.org/a/r4RvicYOFXT3YW1gFVoZQze6A.png)](https://asciinema.org/a/r4RvicYOFXT3YW1gFVoZQze6A)
 
 # brain-progression
-[![asciicast](https://asciinema.org/a/Xfi9GpBYAdXoz7x20p82C5gEr.png)](https://asciinema.org/a/Xfi9GpBYAdXoz7x20p82C5gEr)
+[![asciicast](https://asciinema.org/a/PC9ny1RDOu5HbUYmepmGFWW55.png)](https://asciinema.org/a/PC9ny1RDOu5HbUYmepmGFWW55)
 
 # brain-gcd
-[![asciicast](https://asciinema.org/a/aTrSZ8deWYUHLQ0UvCcJzHRq9.png)](https://asciinema.org/a/aTrSZ8deWYUHLQ0UvCcJzHRq9)
+[![asciicast](https://asciinema.org/a/7wOXqNDVIzfKgZxf0kpyd0EDw.png)](https://asciinema.org/a/7wOXqNDVIzfKgZxf0kpyd0EDw)
 
 # brain-prime
-[![asciicast](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T.png)](https://asciinema.org/a/nQtIx5hW6x0OMy0GsdiVhAL4T)
+[![asciicast](https://asciinema.org/a/BXLhuyRGdjhZusNWlLmSFCePd.png)](https://asciinema.org/a/BXLhuyRGdjhZusNWlLmSFCePd)
